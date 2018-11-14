@@ -1,0 +1,6 @@
+library(spocc)
+library(raster)
+ulmus <- occ(query='Procyon lotor', from='gbif', limit=5000)
+df = as.data.frame(ulmus$gbif$data$Procyon_lotor)
+library(mapr)
+map_leaflet(df[,c('name', 'longitude', 'latitude', 'stateProvince', 'country', 'year', 'occurrenceID')])
